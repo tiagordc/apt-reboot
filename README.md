@@ -3,12 +3,15 @@
 
 Simple application to reboot an Apple TV Homekit hub connected with a smart plug.
 
+Will reboot on the defined schedule or when the Apple TV is not responding.
+
 ## Limitations
 
 Only works with smart plugs that support the [TP-Link Tapo](https://www.tapo.com/) API.
 
 ## Environment variables
 
+ATV_ADDRESS: address of the Apple TV\
 CRON: Cron schedule expression\
 TAPO_IP: IP of your Tapo device\
 TAPO_USERNAME: Your Tapo username\
