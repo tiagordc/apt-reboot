@@ -65,6 +65,7 @@ func isOnline(address string) bool {
 }
 
 func main() {
+	log.Println("Starting application")
 	s := gocron.NewScheduler(time.UTC)
 	atv := os.Getenv("ATV_ADDRESS")
 	cron, present := os.LookupEnv("CRON")

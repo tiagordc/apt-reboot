@@ -19,13 +19,19 @@ TAPO_PASSWORD: Your Tapo password
 
 ## Run
     
-## Docker
+## Docker reference
+
+ * docker build -t go-apt-reboot . --no-cache
+ * docker run --env-file ./.env go-apt-reboot
+ * docker rm -f $(docker ps -aq)
+ * docker rmi $(docker images -q)
 
 ## References
 
  * [P100-go Library](https://github.com/artemvang/p100-go)
  * [Cron Expressions](https://crontab.guru/every-day-at-2am)
-
+ * [Smallest Golang Docker Image](https://klotzandrew.com/blog/smallest-golang-docker-image)
+ 
 ## Disclaimer
 
 GitHub Copilot was used to write part of the code and documentation.
