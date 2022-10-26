@@ -9,16 +9,17 @@ Will reboot on the defined schedule or when the Apple TV is not responding.
 
 Only works with smart plugs that support the [TP-Link Tapo](https://www.tapo.com/) API.
 
+Has to be disabled when the Apple TV is updating.
+
 ## Environment variables
 
 ATV_ADDRESS: address of the Apple TV\
+PING_TIME: time in seconds to run ping command\
 CRON: Cron schedule expression\
 TAPO_IP: IP of your Tapo device\
 TAPO_USERNAME: Your Tapo username\
 TAPO_PASSWORD: Your Tapo password
 
-## Run
-    
 ## Docker reference
 
  * docker build -t go-apt-reboot . --no-cache

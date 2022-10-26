@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"os"
+	"strconv"
 	"time"
 
 	"github.com/go-co-op/gocron"
@@ -66,13 +67,18 @@ func isOnline(address string) bool {
 
 func main() {
 	log.Println("Starting application")
+	ping_str := os.Getenv("PING_TIME")
+	ping_time, err := strconv.Atoi(ping_str)
+	if err != nil {
+		ping_time = 30
+	}
 	s := gocron.NewScheduler(time.UTC)
 	atv := os.Getenv("ATV_ADDRESS")
 	cron, present := os.LookupEnv("CRON")
 	if present {
 		s.Cron(cron).Do(restart)
 	}
-	s.Every(10).Seconds().Do(func() {
+	s.Every(ping_time).Seconds().Do(func() {
 		if !isOnline(atv) {
 			restart()
 		}
